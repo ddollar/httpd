@@ -1,1 +1,1 @@
-This app demonstrats an "it works!" experience with Apache httpd
+This app demonstrates an "it works!" experience with Apache httpd
