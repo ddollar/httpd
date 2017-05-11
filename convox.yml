@@ -2,3 +2,18 @@ services:
   web:
     image: httpd
     port: 80
+workflows:
+  change:
+    create:
+      - run: echo TESTS PASSED
+      - create: staging/httpd-qa-$branch
+      - deploy: staging/httpd-qa-$branch
+    update:
+      - run: echo TESTS PASSED
+      - deploy: staging/httpd-qa-$branch
+    close:
+      - delete: staging/httpd-qa-$branch
+  merge:
+    master:
+      - create: staging/httpd-production
+      - deploy: staging/httpd-production
