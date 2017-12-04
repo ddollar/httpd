@@ -2,5 +2,8 @@ web:
   cpu_shares: 10
   mem_limit: 50MB
   image: httpd
+  labels:
+    - convox.port.443.protocol=tls
   ports:
     - 80:80
+    - 443:80
