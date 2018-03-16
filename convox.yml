@@ -3,7 +3,3 @@ services:
     domain: ${DOMAIN}
     image: httpd
     port: 80
-  agent:
-    agent: true
-    command: sleep 3600
-    image: httpd

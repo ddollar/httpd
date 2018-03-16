@@ -5,9 +5,3 @@ web:
   ports:
     - 80:80
     - 443:80
-agent:
-  command: sleep 3600
-  image: httpd
-  labels:
-    - convox.agent=true
-    - convox.cron.test=* * * * ? sleep 5
