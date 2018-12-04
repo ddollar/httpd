@@ -1,5 +1,7 @@
 services:
   web:
     domain: ${DOMAIN}
+    environment:
+      - FOO=bar
     image: httpd
     port: 80
