@@ -13,3 +13,4 @@ jobs:
       - convox/deploy:
           rack: david/ecs
           app: httpd
+          deploy-key: ${CONVOX_DEPLOY_KEY}
