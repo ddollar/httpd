@@ -1,5 +1,13 @@
 services:
   web:
+    deployment:
+      minimum: 25
+      maximum: 125
     domain: ${DOMAIN}
     image: httpd
     port: 80
+    scale:
+      count: 1-5
+      targets:
+        cpu: 10
+    sticky: true
