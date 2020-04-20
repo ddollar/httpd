@@ -1,15 +1,21 @@
-version: 2.1
-orbs:
-  convox: convox/orb@1.4.1
+version: 2
+jobs:
+  deploy:
+    docker:
+    - image: convox/circleci
+    working_directory: ~/convox
+    steps:
+    - checkout
+    - run:
+        command: mkdir -p workspace
+    - run:
+        name: Deploy Application
+        environment:
+          CONVOX_HOST: console.convox.com
+          CONVOX_RACK: david/ecs
+        command: convox deploy --app $CIRCLE_PROJECT_REPONAME
 workflows:
   deploy:
     jobs:
-      - deploy
-jobs:
-  deploy:
-    executor: convox/cli
-    steps:
-      - checkout
-      - convox/deploy:
-          rack: david/ecs
-          deploy-key: ${CONVOX_PASSWORD}
+    - deploy
+  version: 2
