@@ -12,3 +12,4 @@ jobs:
       - checkout
       - convox/deploy:
           rack: david/ecs
+          deploy-key: ${CONVOX_PASSWORD}
