@@ -4,6 +4,8 @@ services:
       minimum: 25
       maximum: 125
     domain: ${DOMAIN}
+    environment:
+      - FOO=bazz
     image: httpd
     port: 80
     scale:
